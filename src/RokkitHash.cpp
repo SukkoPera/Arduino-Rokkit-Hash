@@ -62,7 +62,7 @@ uint32_t rokkit (const char *data, uint16_t len) {
 		case 3:
 			hash += * ((uint16_t *) data);
 			hash ^= hash << 16;
-			hash ^= ((signed char) data[2]) << 18;
+			hash ^= ((uint32_t) data[2]) << 18;
 			hash += hash >> 11;
 			break;
 
@@ -146,7 +146,7 @@ uint32_t rokkit (const char *data, uint16_t len) {
 		case 3:
 			hash.h += *((uint16_t *) data);
 			hash.h ^= hash.h << 16;  // todo
-			hash.h ^= ((signed char) data[2]) << 18;
+			hash.h ^= ((uint32_t) data[2]) << 18;
 			hash.h += hash.h >> 11;  // todo
 			break;
 
@@ -239,7 +239,7 @@ uint32_t rokkit (const __FlashStringHelper *data, uint16_t len) {
 		case 3:
 			hash.h += val;
 			hash.h ^= hash.h << 16;  // todo
-			hash.h ^= ((signed char) val2) << 18;
+			hash.h ^= ((uint32_t) val2) << 18;
 			hash.h += hash.h >> 11;  // todo
 			break;
 
